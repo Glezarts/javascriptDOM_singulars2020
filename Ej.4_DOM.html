@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        h2{
+            margin: 20px auto;
+            text-align: center;
+        }
+        #saludo{
+            border: none;
+            display: block;
+            margin: 50px auto;
+            width: 300px;
+            font-size: 2em;
+            border-radius: 20px;
+            padding: 5px;
+            background-color: cornflowerblue;
+            color: rgb(255, 253, 253);
+            border-left: 5px solid rgb(53, 83, 139);
+            border-bottom: 5px solid rgb(53, 83, 139);
+        }
+        div{
+            color:black;
+            font-size: 1.5em;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+        }
+        
+        #saludo:hover{
+            border-left:none;
+            border-bottom: 3px solid  rgb(53, 83, 139);
+        }
+ 
+
+        .user{
+            text-align: center;
+        }
+        #text{
+            display: block;
+            margin:30px auto;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Selecciona</h2>
+
+<div class="input">
+      <input type="radio" value = "Sr."  name="gen" > Sr.
+      <input type="radio" value = "Sra."  name="gen"> Sra.
+</div>
+
+    <input id= "text" type="text" placeholder= "Escribe tu nombre">
+
+
+
+    <button id= "saludo"> Haz click</button>
+    
+    <div class="user" >
+
+    </div>
+    <script>
+        var button = document.querySelector('#saludo');
+        button.addEventListener("click", ()=>{
+            var radio = document.querySelector("[name=gen]:checked");
+            if (radio != null){
+                document.querySelector('.user').innerHTML = `Hola ${radio.value} ${text.value}`;
+
+            }else{
+                document.querySelector('.user').innerHTML = "Selecciona una opción válida";
+                document.querySelector('.user').style.color = "red";
+            }
+        })
+
+
+    </script>
+</body> 
+</body>
+</html>

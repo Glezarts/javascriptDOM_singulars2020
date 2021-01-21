@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        body{
+            background-color: rgb(241, 241, 241);
+        }
+        .content{
+            background-color: rgb(138, 75, 196);
+            padding:50px;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: 60px auto;
+            border-radius: 20px;
+            box-shadow: 3px 20px 56px -10px rgba(151, 151, 151, 0.64);
+
+        }
+        input{
+            display: block;
+            width: 300px;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px;
+            border-radius: 2px;
+            border: none;
+        }
+        .medida select{
+            display: block;
+            width: 320px;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px;
+            border:none;
+            border-radius: 2px;
+
+        }
+        .mensaje input{
+            height: 80px;
+        }
+        h4{
+            text-align: center;
+            color: white;
+        }
+        input:focus{
+            border: none;
+        }
+        button{
+            width: 100px;
+            margin: 10px auto;
+            padding: 10px;
+            border: none;
+            border-radius: 2px;
+            
+        }
+        .final{
+            width: 700px;
+            height: 100px;
+            background-color: white;
+            margin: 0px auto;
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="nombre">
+            <input type="text" name="nombre" id="nombre" placeholder="Escribe un nombre">
+        </div>
+        <div class="material">
+            <input type="text" name="nombre" id="material" placeholder="Escribe una comida">
+        </div>
+        <div class="medida">
+            <h4>Selecciona una medida</h4>
+            <select name="" id="size">
+                <option name="s" value="mini">Mini</option>
+                <option name="s" value="normal">Normal</option>
+                <option name="s" value="grande">Grande</option>
+                <option name="s" value="gigante">Gigante</option>
+            </select>
+        </div>
+        <div class="mensaje">
+            <input type="text" name="mensaje" id="mensaje" placeholder="Escribe tu petición especial">
+        </div>
+        <button id="r">Resultado</button>
+    </div>
+    <div class="final">
+
+    </div>
+
+    <script>
+        var nombre, material, size, mens, boton, caja_final;
+
+        nombre = document.querySelector('#nombre');
+        material = document.querySelector('#material');
+        mens = document.querySelector('#mensaje')
+        boton = document.querySelector('#r');
+        caja_final = document.querySelector(".final")
+
+        boton.addEventListener("click", ()=>{
+            size = document.querySelector('[name=s]:checked');
+            caja_final.innerHTML = `${nombre.value} ha pedido ${material.value} de tamaño ${size.value} y ${mens.value}`
+        })
+
+
+    </script>
+</body>
+</html>

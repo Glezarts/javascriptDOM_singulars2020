@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+       body{
+           background-color: #f7f7f7;
+       }
+       .content{
+           background-color: rgb(255, 255, 255);
+           width: 400px;
+           margin: 10px auto;
+           padding: 50px 20px;
+           box-shadow: 3px 11px 36px -5px rgba(176,176,176,0.64);
+           border-radius: 20px;
+       }
+        .content h2{
+           text-align: center;
+
+        }
+
+       #input{
+            display: block;
+            font-size: 1em;
+            margin:  30px auto;
+            width: 300px;
+            border-radius: 20px;
+            padding: 5px;
+        }
+        #grados_preg{
+            display: block;
+            color:black;
+            font-size: 1em;
+            font-family: Arial, Helvetica, sans-serif;
+            margin:  30px auto;
+            width: 290px;
+            border-radius: 20px;
+            padding: 5px;
+
+        }
+        #conversion{
+            display: block;
+            border: none;
+            width: 300px;
+            font-size: 1em;
+            border-radius: 20px;
+            padding: 5px;
+            background-color: cornflowerblue;
+            color: rgb(255, 253, 253);
+            border-left: 5px solid rgb(53, 83, 139);
+            border-bottom: 5px solid rgb(53, 83, 139);
+            margin:  30px auto;
+            height: 35px;
+        }
+    
+        
+        
+        #conversion:hover{
+            border-left:none;
+            border-bottom: 3px solid  rgb(53, 83, 139);
+        }
+        #input2{
+            display: block;
+            font-size: 1em;
+            font-family: Arial, Helvetica, sans-serif;
+            margin:  30px auto;
+            width: 300px;
+            border-radius: 20px;
+            padding: 5px;
+
+        }
+        .grados_resul{
+            width: 290px;
+            height: 20px;
+            border: 1px solid #cbcbcb;
+            margin: 30px auto;
+            border-radius: 20px;
+            padding: 5px;
+
+        }
+
+       
+        #text{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <h2>Convertidor</h2>
+        <form>
+            <select id="input">
+              <option name ="grados" value="c">grados Celsius</option>
+              <option name ="grados" value="f">grados Fahrenheit</option>
+              <option name ="grados" value="k">grados Kelvin</option>
+            </select>
+          </form>
+        <input id="grados_preg" type="text">
+    
+        <button id= "conversion"> Transformar</button>
+        
+        <form>
+            <select id="input2">
+              <option name ="grados2" value="c">grados Celsius</option>
+              <option name ="grados2" value="f">grados Fahrenheit</option>
+              <option name ="grados2" value="k">grados Kelvin</option>
+            </select>
+          </form>
+        <div class="grados_resul" >
+    
+        </div>
+    </div>
+    <script>
+        var button = document.querySelector('#conversion');
+        var gradosresul = document.querySelector('.grados_resul');
+
+        button.addEventListener("click", ()=> gradosresul.innerHTML= conversion())
+        function conversion(inicio, final) {
+            var unidadI  = document.querySelector('[name=grados]:checked');
+            var unidadF  = document.querySelector('[name=grados2]:checked');
+            var inicio = document.querySelector("#input").value;
+            var final;
+            var CtoF = parseFloat((inicio.value * 9/5)+32).toFixed(2);
+            var CtoK = parseFloat(inicio.value + 273.15).toFixed(2);
+            var FtoC = parseFloat((inicio.value -32)* 5/9).toFixed(2);
+            var FtoK = parseFloat((inicio.value + 459.67)* 5/9).toFixed(2);
+            var KtoF = parseFloat(inicio.value *9/5 - 459.67).toFixed(2);
+
+            if(unidadI === "c" && unidadF === "f"){
+                final = CtoF + "grados Fahrenheit";
+            }
+            if(unidadI === "c" && unidadF === "k"){
+                final = CtoK + "grados Kelvin";
+            }
+            if(unidadI === "f" && unidadF === "c"){
+                final = KtoC + "grados Celsius";
+            }
+            if(unidadI === "f" && unidadF === "k"){
+                final = FtoK + "grados Kelvin";
+            }
+            if(unidadI === "k" && unidadF === "f"){
+                final = KtoF + "grados Fahrenheit";
+            }
+            return final;
+        }
+
+
+    </script>
+</body> 
+</body>
+</html>
